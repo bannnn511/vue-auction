@@ -38,27 +38,27 @@
         </div>
       </div>
       <div id="Auction">
-        <b-card-group deck v-for="(product, index) in products" v-bind:key="index">
-          <div>
-            <b-card
-              :title="product"
-              img-src="https://placekitten.com/g/300/450"
-              img-alt="Image"
-              img-top
-              @mouseover="hoverCard = index"
-              @mouseleave="hoverCard = null"
-              :class="{ shadow: hoverCard === index }"
-            >
-              <b-card-text>
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </b-card-text>
-              <template v-slot:footer>
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </template>
-            </b-card>
-          </div>
+        <b-card-group deck>
+          <b-card
+            :title="product"
+            img-src="https://placekitten.com/g/300/450"
+            img-alt="Image"
+            img-top
+            v-for="(product, index) in products"
+            v-bind:key="index"
+            @mouseover="hoverCard = index"
+            @mouseleave="hoverCard = null"
+            :class="{ shadow: hoverCard === index }"
+          >
+            <b-card-text>
+              This is a wider card with supporting text below as a natural
+              lead-in to additional content. This content is a little bit
+              longer.
+            </b-card-text>
+            <template v-slot:footer>
+              <small class="text-muted">Last updated 3 mins ago</small>
+            </template>
+          </b-card>
         </b-card-group>
       </div>
     </div>
@@ -185,6 +185,7 @@ a {
   display: flex;
   margin-top: 50px;
   justify-content: space-between;
+  flex-direction: row;
 }
 
 #Auction .deck {
@@ -193,6 +194,12 @@ a {
 
 .card {
   margin-right: 50px;
+  margin-left: 50px;
+  width: 100%;
+}
+
+.card-group {
+  max-width: 25%;
 }
 
 .shadow {
