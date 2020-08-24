@@ -10,7 +10,6 @@
             class="form-control"
             :class="{ 'form-control': true, error: errors[0] }"
           />
-          <span> {{ errors[0] }} </span>
         </ValidationProvider>
       </div>
 
@@ -36,7 +35,10 @@
           <select
             type="text"
             class="form-control"
-            :class="{ 'form-control': true, error: errors[0] }"
+            :class="{
+              'form-control': true,
+              error: errors[2],
+            }"
           >
             <template v-for="manufacturer in manufacturers">
               <option :key="manufacturer._id" :value="manufacturer._id">{{
@@ -59,7 +61,6 @@
           <input
             type="text"
             placeholder="Image"
-            name="image"
             class="form-control"
             :class="{ 'form-control': true, error: errors[0] }"
           />
@@ -77,7 +78,10 @@
             class="form-control"
             placeholder="Description"
             rows="5"
-            :class="{ 'form-control': true, error: errors[0] }"
+            :class="{
+              'form-control': true,
+              error: errors[0],
+            }"
           ></textarea>
         </ValidationProvider>
       </div>
