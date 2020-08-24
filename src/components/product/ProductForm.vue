@@ -3,97 +3,89 @@
     <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
       <div class="form-group">
         <label>Name</label>
-        <ValidationProvider name="name" rules="required">
+        <ValidationProvider name="name" rules="required" v-slot="{ errors }">
           <input
             type="text"
             placeholder="Name"
-            v-model="model.name"
-            :class="{ 'form-control': true, error: errors.has('name') }"
+            class="form-control"
+            :class="{ 'form-control': true, error: errors[0] }"
           />
+          <span> {{ errors[0] }} </span>
         </ValidationProvider>
-        <span class="small text-danger" vshows="errors.has('name')"
-          >Name is required</span
-        >
       </div>
+
       <div class="form-group">
         <label>Price</label>
-        <ValidationProvider name="price" rules="required">
+        <ValidationProvider name="price" rules="required" v-slot="{ errors }">
           <input
             type="number"
             class="form-control"
             placeholder="Price"
-            v-model="model.price"
-            :class="{ 'form-control': true, error: erros.has('price') }"
+            :class="{ 'form-control': true, error: errors[0] }"
           />
         </ValidationProvider>
-        <span class="small text-danger" v-show="erros.has('price')"
-          >Price is required</span
-        >
       </div>
+
       <div class="form-group">
         <label>Manufacturer</label>
-        <ValidationProvider name="price" rules="required">
+        <ValidationProvider
+          rules="required"
+          name="manufacturer"
+          v-slot="{ errors }"
+        >
           <select
-            class="form-control"
             type="text"
-            placeholder="Price"
-            v-model="model.manufacturer"
-            :class="{ 'form-control': true, error: errors.has('mamufacturer') }"
+            class="form-control"
+            :class="{ 'form-control': true, error: errors[0] }"
           >
             <template v-for="manufacturer in manufacturers">
-              <option
-                :value="manufacturer._id"
-                :key="manufacturer"
-                :selected="
-                  manufacturer._id ==
-                    (model.manufacturer && model.manufacturer._id)
-                "
-                >{{ manufacturer.name }}</option
-              >
+              <option :key="manufacturer._id" :value="manufacturer._id">{{
+                manufacturer.name
+              }}</option>
             </template>
           </select>
         </ValidationProvider>
-        <span
-          class="small text-danger"
-          v-show="errors.has('manufacturer')"
-        ></span>
       </div>
     </div>
+
     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
       <div class="form-group">
         <label>Image</label>
-        <ValidationProvider name="image" rules="required|url">
+        <ValidationProvider
+          name="image"
+          rules="required|url"
+          v-slot="{ errors }"
+        >
           <input
             type="text"
-            lass="form-control"
             placeholder="Image"
-            v-model="model.image"
-            :class="{ 'form-control': true, error: errors.has('image') }"
+            name="image"
+            class="form-control"
+            :class="{ 'form-control': true, error: errors[0] }"
           />
         </ValidationProvider>
-        <span class="small text-danger" v-show="errors.has('image')"
-          >Image is required and must be a valid URL</span
-        >
       </div>
+
       <div class="form-group">
         <label>Description</label>
-        <ValidationProvider name="description" rules="required">
+        <ValidationProvider
+          name="description"
+          rules="required"
+          v-slot="{ errors }"
+        >
           <textarea
-            type="number"
             class="form-control"
             placeholder="Description"
             rows="5"
-            v-model="model.description"
-            :class="{ 'form-control': true, error: errors.has('description') }"
+            :class="{ 'form-control': true, error: errors[0] }"
           ></textarea>
         </ValidationProvider>
-        <span class="small text-danger" v-show="errors.has('description')"
-          >Description is required</span
-        >
       </div>
+
       <div class="form-group new-button">
         <button class="button">
           <i class="fa fa-pencil"></i>
+          <!-- Conditional rendering for input text -->
           <span v-if="isEditing">Update Product</span>
           <span v-else>Add Product</span>
         </button>
@@ -102,19 +94,66 @@
   </form>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
-export default Vue.extend({
-  props: ["model", "manufacturers", "isEditing"],
-  data() {
-    return {
-      errors: [],
-    };
-  },
+<script>
+export default {
+  props: ["model", "isEditing", "manufacturers"],
+
   methods: {
     saveProduct() {
       console.log(this.errors);
     },
   },
-});
+};
 </script>
+
+<style scoped>
+button.button {
+  background: #efdb06;
+  border: 1px solid #f9e610;
+  border-radius: 20px;
+  padding: 10px 15px;
+  font-family: "PT Sans", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  transition: all 200ms ease-out;
+  outline: none;
+}
+
+button.button:hover {
+  background: #f9e610;
+}
+
+button.button.disabled {
+  background: #f9e610;
+  opacity: 0.6;
+  cursor: default;
+}
+
+button.button.button-danger {
+  background: #ff3333;
+  border: 1px solid #ff4747;
+  color: #fff;
+}
+
+button.button.button-danger:hover {
+  background: #ff4747;
+}
+
+.new-button {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.form-control:focus {
+  border-color: #f9e610;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(249, 230, 16, 0.6);
+}
+
+.form-control.error {
+  border-color: #ff3333;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(255, 71, 71, 0.6);
+}
+</style>

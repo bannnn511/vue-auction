@@ -1,31 +1,28 @@
 <template>
-  <product-form
-    @save-product="addProduct"
-    :model="model"
-    :manufacturers="manufacturers"
-  ></product-form>
+  <product-form :model="model" :manufacturers="manufacturers"></product-form>
 </template>
 
 <script>
-import ProductFrom from "@/components/product/ProductForm";
+import ProductForm from "../../components/product/ProductForm.vue";
 export default {
   data() {
     return {
       model: {},
       manufacturers: [
         {
-          _id: "sam",
+          _id: 1,
           name: "Samsung",
         },
         {
-          _id: "apple",
+          _id: 2,
           name: "Apple",
         },
       ],
     };
   },
+
   components: {
-    "product-form": ProductFrom,
+    "product-form": ProductForm,
   },
 };
 </script>

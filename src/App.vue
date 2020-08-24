@@ -1,12 +1,6 @@
 <template>
   <div id="app">
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-      crossorigin="anonymous"
-    />
-    <img alt="Vue logo" src="./assets/logo.png" />
+    <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
     <nav>
       <div class="container">
         <ul class="nav__left">
@@ -18,24 +12,21 @@
             <router-link to="/admin">Admin</router-link>
           </li>
           <li>
-            <router-link to="./cart">Cart</router-link>
+            <router-link to="/cart">Cart</router-link>
           </li>
         </ul>
       </div>
     </nav>
-    <HomePage />
+    <router-view></router-view>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import HomePage from "./Pages/HomePage/HomePage.vue";
 
 export default Vue.extend({
   name: "App",
-  components: {
-    HomePage,
-  },
+  components: {},
 });
 </script>
 
@@ -46,5 +37,32 @@ export default Vue.extend({
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  text-transform: uppercase;
+  background: #5995da;
+}
+
+nav .container {
+  display: flex;
+}
+
+nav li a {
+  color: #ffffff;
+  display: block;
+  padding: 15px 15px;
+  transition: all 150ms ease-out;
+}
+
+nav .nav__left {
+  display: flex;
+  justify-content: space-between;
 }
 </style>
