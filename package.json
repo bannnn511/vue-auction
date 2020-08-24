@@ -12,8 +12,9 @@
     "bootstrap-vue": "^2.16.0",
     "core-js": "^3.6.5",
     "lodash": "^4.17.20",
+    "vee-validate": "^3.3.9",
     "vue": "^2.6.11",
-    "vuetify": "^2.2.11"
+    "vue-router": "^3.4.3"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.33.0",

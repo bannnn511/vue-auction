@@ -1,0 +1,139 @@
+h3 {
+  margin: 40px 0 0;
+}
+
+ul {
+  border: 1px solid white;
+  border-radius: 5px;
+  list-style-type: none;
+  padding: 0;
+}
+
+a {
+  color: #42b983;
+  display: block;
+}
+
+.menu-contrainer {
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  background-color: #5995da;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  background-color: #5995da;
+}
+
+.date {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 150px;
+  color: white;
+  margin-top: 30px;
+  font-size: 25px;
+}
+
+.signup {
+  display: flex;
+  margin-right: 150px;
+  justify-content: flex-end;
+  height: 40px;
+  margin-top: 30px;
+}
+
+.content-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.banner-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  border: 1px solid #d0d0d0;
+}
+
+#Categories {
+  display: flex;
+  margin: left;
+  flex-direction: column;
+  text-align: left;
+  width: 20%;
+}
+
+#Categories .categoryItem {
+  margin-left: 10px;
+  height: 40px;
+}
+
+#Categories li {
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  margin: 0 0px;
+  text-align: left;
+}
+
+#Banners {
+  display: flex;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.active {
+  background: green;
+  color: white;
+}
+
+#Auction {
+  display: flex;
+  margin-top: 50px;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+}
+
+#Auction .deck {
+  display: flex;
+}
+
+.card {
+  margin-right: 50px;
+  margin-left: 50px;
+  width: 100%;
+}
+
+.card-group {
+  max-width: 25%;
+}
+
+.cards-list {
+  width: 100%;
+  margin: 2vh 0px 0px 0px;
+
+  .cards-details {
+    float: left;
+    width: 20%;
+    padding: 1vh;
+    .image-dis {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+
+    .text-title {
+      font-size: 2hv;
+    }
+  }
+}
+
+.shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
