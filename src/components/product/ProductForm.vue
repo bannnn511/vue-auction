@@ -104,7 +104,7 @@ export default {
 
   methods: {
     saveProduct() {
-      console.log(this.errors);
+      this.$emit("save-product", this.model);
     },
   },
 };

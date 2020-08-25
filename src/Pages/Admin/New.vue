@@ -8,19 +8,14 @@ export default {
   data() {
     return {
       model: {},
-      manufacturers: [
-        {
-          _id: 1,
-          name: "Samsung",
-        },
-        {
-          _id: 2,
-          name: "Apple",
-        },
-      ],
+      manufacturers: this.$store.getters.allManufacturers,
     };
   },
-
+  methods: {
+    addProduct(model) {
+      console.log("model", model);
+    },
+  },
   components: {
     "product-form": ProductForm,
   },

@@ -67,18 +67,17 @@ export default Vue.extend({
   },
   data: function() {
     return {
-      categories: ["books", "clothes", "accessory"],
+      categories: this.$store.getters.allCategories,
       title: "Auction",
       hover: false,
       hoverCard: false,
-      products: ["bike", "car", "book", "laptop", "iphone", "watch", "tetse"],
+      products: this.$store.getters.allProducts,
     };
   },
   methods: {},
 });
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
 @import "./HomePage.css";
 </style>
