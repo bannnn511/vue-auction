@@ -1,5 +1,5 @@
 import Vue from "vue";
-import App from "./App.vue";
+import App from "./Pages/App.vue";
 import router from "./router";
 import store from "./store/index";
 import { ValidationProvider, extend } from "vee-validate";

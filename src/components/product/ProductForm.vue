@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="saveProduct">
-    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+    <div>
       <div class="form-group">
         <label>Name</label>
         <ValidationProvider name="name" rules="required" v-slot="{ errors }">
@@ -27,11 +27,7 @@
 
       <div class="form-group">
         <label>Manufacturer</label>
-        <ValidationProvider
-          rules="required"
-          name="manufacturer"
-          v-slot="{ errors }"
-        >
+        <ValidationProvider rules="required" name="manufacturer" v-slot="{ errors }">
           <select
             type="text"
             class="form-control"
@@ -41,23 +37,17 @@
             }"
           >
             <template v-for="manufacturer in manufacturers">
-              <option :key="manufacturer._id" :value="manufacturer._id">{{
-                manufacturer.name
-              }}</option>
+              <option :key="manufacturer._id" :value="manufacturer._id">{{ manufacturer.name }}</option>
             </template>
           </select>
         </ValidationProvider>
       </div>
     </div>
 
-    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <div>
       <div class="form-group">
         <label>Image</label>
-        <ValidationProvider
-          name="image"
-          rules="required|url"
-          v-slot="{ errors }"
-        >
+        <ValidationProvider name="image" rules="required|url" v-slot="{ errors }">
           <input
             type="text"
             placeholder="Image"
@@ -69,11 +59,7 @@
 
       <div class="form-group">
         <label>Description</label>
-        <ValidationProvider
-          name="description"
-          rules="required"
-          v-slot="{ errors }"
-        >
+        <ValidationProvider name="description" rules="required" v-slot="{ errors }">
           <textarea
             class="form-control"
             placeholder="Description"
@@ -110,7 +96,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 button.button {
   background: #efdb06;
   border: 1px solid #f9e610;

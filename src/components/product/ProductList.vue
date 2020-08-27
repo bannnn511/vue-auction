@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="products">
+    <div class="auction">
       <div class="container">
-        <template v-for="product in products">
-          <product-item :product="product" v-bind:key="product"></product-item>
+        <template v-for="(auction, index) in auctions[0]">
+          <product-item :auction="auction" v-bind:key="index"></product-item>
         </template>
       </div>
     </div>
@@ -16,13 +16,13 @@ import ProductItem from "./ProductItem.vue";
 export default Vue.extend({
   name: "product-list",
   created() {
-    if (this.products.length === 0) {
-      this.$store.dispatch("allProducts");
+    if (this.auctions.length === 0) {
+      this.$store.dispatch("allAuctions");
     }
   },
   computed: {
-    products() {
-      return this.$store.getters.allProducts;
+    auctions() {
+      return this.$store.getters.allAuctions;
     },
   },
   components: {
@@ -30,3 +30,15 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style>
+.auction {
+  margin-top: 20px;
+  background: #f7f8fb;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+</style>

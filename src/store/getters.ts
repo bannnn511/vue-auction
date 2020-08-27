@@ -1,15 +1,16 @@
-export const productGetters = {
-  // All products
-  allProducts: (state: any) => {
-    return state.products;
+export const auctionGetters = {
+  // All auctions
+  allAuctions: (state: any) => {
+    return state.auctions;
   },
 
   // Get Product by ID
-  productById: (state: any, getters: any) => (id: any) => {
-    if (getters.allProducts.length > 0) {
-      return getters.allProducts.filters((p: any) => p._id === id)[0];
+  auctionById: (state: any, getters: any) => (id: any) => {
+    if (getters.allAuctions.length > 0) {
+      console.log(getters.allAuctions[0].filter((p: any) => p.id === id)[0]);
+      return getters.allAuctions[0].filter((p: any) => p.id === id)[0];
     } else {
-      return state.product;
+      return state.auction;
     }
   },
 };

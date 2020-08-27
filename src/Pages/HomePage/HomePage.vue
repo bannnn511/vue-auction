@@ -37,10 +37,10 @@
           />
         </div>
       </div>
-      <div class="cards-list">
+      <!-- <div class="cards-list">
         <div
           class="cards-details"
-          v-for="(product, index) in products"
+          v-for="(auction, index) in auctions"
           v-bind:key="index"
           @mouseover="hoverCard = index"
           @mouseleave="hoverCard = null"
@@ -52,13 +52,15 @@
           />
           <p class="text-title">{{ product }}</p>
         </div>
-      </div>
+      </div>-->
+      <product-list></product-list>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import ProductList from "../../components/product/ProductList.vue";
 
 export default Vue.extend({
   name: "HomePage",
@@ -71,10 +73,13 @@ export default Vue.extend({
       title: "Auction",
       hover: false,
       hoverCard: false,
-      products: this.$store.getters.allProducts,
+      auctions: this.$store.getters.allAuctions,
     };
   },
   methods: {},
+  components: {
+    "product-list": ProductList,
+  },
 });
 </script>
 

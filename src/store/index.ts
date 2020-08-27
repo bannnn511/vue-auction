@@ -1,11 +1,12 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import {
-  productGetters,
+  auctionGetters,
   manufacturerGetters,
   categoriesGetters,
 } from "./getters";
-import { productMutations } from "./mutations";
+import { auctionMutations } from "./mutations";
+import { auctionActions } from "./actions";
 
 Vue.use(Vuex);
 
@@ -14,8 +15,8 @@ export default new Vuex.Store({
   state: {
     cart: [],
     showLoader: false,
-    product: {},
-    products: ["bike", "car", "book", "laptop", "iphone", "watch", "tetse"],
+    auction: {},
+    auctions: [],
     manufacturers: [
       {
         _id: 1,
@@ -30,9 +31,10 @@ export default new Vuex.Store({
   },
   getters: Object.assign(
     {},
-    productGetters,
+    auctionGetters,
     manufacturerGetters,
     categoriesGetters
   ),
-  mutations: Object.assign({}, productMutations),
+  mutations: Object.assign({}, auctionMutations),
+  actions: Object.assign({}, auctionActions),
 });

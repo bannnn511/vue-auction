@@ -1,9 +1,9 @@
 <template>
   <div>
     <button v-if="isAdding" class="button" @click="addToCart">
-      <i class="fa fa-cart-plus"></i> Add to Cart
+      <i class="fa fa-cart-plus"></i> Bid price
     </button>
-    <button v-else class="button button-danger" @click="removeFromCart(product._id)">
+    <button v-else class="button button-danger" @click="removeFromCart(auction._id)">
       <i class="fa fa-trash"></i> Remove from Cart
     </button>
   </div>
@@ -13,7 +13,7 @@
 import Vue from "vue";
 import { ADD_TO_CART, REMOVE_FROM_CART } from "@/store/mutation-types";
 export default Vue.extend({
-  props: ["product"],
+  props: ["auction"],
   data() {
     return {
       cart: this.$store.state.cart,
@@ -21,15 +21,15 @@ export default Vue.extend({
   },
   computed: {
     isAdding() {
-      return this.$store.state.cart.indexOf(this.product) < 0;
+      return this.$store.state.cart.indexOf(this.auction) < 0;
     },
   },
   methods: {
     addToCart() {
-      this.$store.commit(ADD_TO_CART, this.$props.product);
+      // this.$store.commit(ADD_TO_CART, this.$props.auction);
     },
     removeFromCart(id: any) {
-      this.$store.commit(REMOVE_FROM_CART, id);
+      // this.$store.commit(REMOVE_FROM_CART, id);
     },
   },
 });
