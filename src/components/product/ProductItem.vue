@@ -38,6 +38,8 @@ export default Vue.extend({
   margin-bottom: 30px;
   position: relative;
   overflow: hidden;
+  margin-top: 10px;
+  box-shadow: 0 0px 7px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.19);
 }
 .product .product__description,
 .product .product__action {

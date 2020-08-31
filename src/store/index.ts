@@ -16,6 +16,7 @@ export default new Vuex.Store({
     cart: [],
     showLoader: false,
     auction: {},
+    tempPrice: 0,
     auctions: [],
     manufacturers: [
       {

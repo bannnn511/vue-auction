@@ -22,7 +22,7 @@ a {
       -ms-flex-pack: center;
           justify-content: center;
   height: 100px;
-  background-color: #5995da;
+  background-color: white;
 }
 
 .menu {
@@ -33,18 +33,15 @@ a {
       -ms-flex-pack: justify;
           justify-content: space-between;
   height: 100px;
-  background-color: #5995da;
+  background-color: white;
 }
 
 .date {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  margin-left: 150px;
-  color: white;
+  margin-left: 35vh;
+  color: black;
   margin-top: 30px;
   font-size: 25px;
 }
@@ -61,10 +58,11 @@ a {
   margin-top: 30px;
 }
 
-.content-wrapper {
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
+.home {
+  margin-top: 1vh;
+  background-color: #ededed;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .banner-container {
@@ -74,15 +72,17 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 20px;
-  border: 1px solid #d0d0d0;
+  background-color: white;
+  margin-left: 21vh;
+  margin-right: 21vh;
+  -webkit-box-shadow: 0 0px 7px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 0px 7px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.19);
 }
 
 #Categories {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: left;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;

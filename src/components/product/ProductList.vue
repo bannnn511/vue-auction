@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <div class="auction">
-      <div class="container">
-        <template v-for="(auction, index) in auctions[0]">
-          <product-item :auction="auction" v-bind:key="index"></product-item>
-        </template>
-      </div>
+  <div class="auction">
+    <div class="container">
+      <template v-for="(auction, index) in auctions[0]">
+        <product-item :auction="auction" v-bind:key="index"></product-item>
+      </template>
     </div>
   </div>
 </template>
@@ -33,12 +31,14 @@ export default Vue.extend({
 
 <style>
 .auction {
-  margin-top: 20px;
-  background: #f7f8fb;
+  background: #ededed;
 }
 
-.container {
+.auction .container {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 20px;
+  background-color: white;
+  box-shadow: 0 0px 7px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.19);
 }
 </style>

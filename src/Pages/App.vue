@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <nav>
       <div class="container">
         <ul class="nav__left">
@@ -17,16 +20,19 @@
         </ul>
       </div>
     </nav>
+    <nav-home></nav-home>
     <router-view></router-view>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-
+import Nav from "../components/Nav.vue";
 export default Vue.extend({
   name: "App",
-  components: {},
+  components: {
+    "nav-home": Nav,
+  },
 });
 </script>
 

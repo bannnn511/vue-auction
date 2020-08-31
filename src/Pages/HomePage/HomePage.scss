@@ -18,21 +18,20 @@ a {
   display: flex;
   justify-content: center;
   height: 100px;
-  background-color: #5995da;
+  background-color: white;
 }
 
 .menu {
   display: flex;
   justify-content: space-between;
   height: 100px;
-  background-color: #5995da;
+  background-color: white;
 }
 
 .date {
   display: flex;
-  justify-content: flex-start;
-  margin-left: 150px;
-  color: white;
+  margin-left: 35vh;
+  color: black;
   margin-top: 30px;
   font-size: 25px;
 }
@@ -44,23 +43,23 @@ a {
   height: 40px;
   margin-top: 30px;
 }
-
-.content-wrapper {
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
+.home {
+  margin-top: 1vh;
+  background-color: #ededed;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .banner-container {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
-  border: 1px solid #d0d0d0;
+  background-color: white;
+  margin-left: 21vh;
+  margin-right: 21vh;
+  box-shadow: 0 0px 7px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.19);
 }
 
 #Categories {
   display: flex;
-  margin: left;
   flex-direction: column;
   text-align: left;
   width: 20%;
