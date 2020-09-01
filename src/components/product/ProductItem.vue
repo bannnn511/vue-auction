@@ -3,7 +3,12 @@
     <div class="product">
       <router-link :to="'/details/' + auction.id" class="product-link">
         <div class="product__image">
-          <img class="img-responsive" :src="auction.imgURL" alt />
+          <img
+            loading="lazy"
+            class="img-responsive"
+            :src="auction.imgURL"
+            alt
+          />
         </div>
         <div class="product__description">
           <div class="product__info">

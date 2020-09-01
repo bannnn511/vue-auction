@@ -57,3 +57,37 @@ export const auctionActions = {
     }
   },
 };
+
+export const authActions = {
+  async loginAction({ commit }: any, payload: any) {
+    try {
+      const res = await axios.post(`${API_BASE}/auth/login`, {
+        email: payload.email,
+        password: payload.password,
+      });
+      if (res.status < 400) {
+        console.log(res.data);
+      } else {
+        throw new Error("login failed");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  async signUpAction({ commit }: any, payload: any) {
+    try {
+      const res = await axios.post(`${API_BASE}/auth/register`, {
+        email: payload.email,
+        password: payload.password,
+      });
+      if (res.status < 400) {
+        console.log(res.data);
+      } else {
+        throw new Error("signup failed");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  },
+};

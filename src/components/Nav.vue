@@ -1,7 +1,9 @@
 <template>
   <div class="menu-container">
     <div class="menu">
-      <div class="date">{{ title }}</div>
+      <router-link to="/">
+        <div class="date">{{ title }}</div>
+      </router-link>
       <form class="form-inline">
         <input
           class="form-control mr-sm-2"

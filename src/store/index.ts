@@ -6,13 +6,14 @@ import {
   categoriesGetters,
 } from "./getters";
 import { auctionMutations } from "./mutations";
-import { auctionActions } from "./actions";
+import { auctionActions, authActions } from "./actions";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   strict: true,
   state: {
+    token: "",
     cart: [],
     showLoader: false,
     auction: {},
@@ -37,5 +38,5 @@ export default new Vuex.Store({
     categoriesGetters
   ),
   mutations: Object.assign({}, auctionMutations),
-  actions: Object.assign({}, auctionActions),
+  actions: Object.assign({}, authActions, auctionActions),
 });

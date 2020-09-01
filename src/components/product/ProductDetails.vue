@@ -64,6 +64,7 @@ export default Vue.extend({
 
 <style>
 .product-details {
+  margin-top: 100vh;
   border-bottom: 2px solid #f5f5f5;
 }
 .product-details__image {
@@ -92,7 +93,7 @@ export default Vue.extend({
 }
 
 .parent-container {
-  padding-top: 50px;
+  margin-top: 10vh;
   background-color: white;
   display: flex;
   justify-content: space-evenly;
