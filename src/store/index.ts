@@ -4,9 +4,10 @@ import {
   auctionGetters,
   manufacturerGetters,
   categoriesGetters,
+  authGetters,
 } from "./getters";
-import { auctionMutations } from "./mutations";
-import { auctionActions, authActions } from "./actions";
+import { auctionMutations, authMutations } from "./mutations/index";
+import { auctionActions, authActions } from "./actions/index";
 
 Vue.use(Vuex);
 
@@ -33,10 +34,11 @@ export default new Vuex.Store({
   },
   getters: Object.assign(
     {},
+    authGetters,
     auctionGetters,
     manufacturerGetters,
     categoriesGetters
   ),
-  mutations: Object.assign({}, auctionMutations),
+  mutations: Object.assign({}, authMutations, auctionMutations),
   actions: Object.assign({}, authActions, auctionActions),
 });

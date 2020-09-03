@@ -1,13 +1,13 @@
 import {
-  ALL_AUCTIONS,
-  ADD_AUCTION_SUCCESS,
-  ALL_AUCTIONS_SUCCESS,
   ADD_AUCTION,
+  ADD_AUCTION_SUCCESS,
+  ALL_AUCTIONS,
+  ALL_AUCTIONS_SUCCESS,
   AUCTION_BY_ID,
   AUCTION_BY_ID_SUCCESS,
   BID_PRICE,
   UPDATE_PRODUCT_TEMP_PRICE,
-} from "./mutation-types";
+} from "@/store/mutation-types";
 
 export const auctionMutations = {
   [ALL_AUCTIONS](state: any) {

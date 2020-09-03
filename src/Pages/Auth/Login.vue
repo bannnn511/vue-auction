@@ -116,7 +116,10 @@ export default Vue.extend({
       this.fullname = "";
       this.signUpEmail = "";
       this.signUpPassword = "";
-      console.log(this.loginEmail, this.loginPassword);
+      this.$store.dispatch("login", {
+        email: this.loginEmail,
+        password: this.loginPassword,
+      });
     },
     sigup() {
       this.loginEmail = "";

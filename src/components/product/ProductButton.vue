@@ -9,7 +9,7 @@
       @click="removeFromCart(auction._id)"
     >
       <i class="fa fa-trash"></i> Remove from Cart
-    </button> -->
+    </button>-->
   </div>
 </template>
 
@@ -30,8 +30,8 @@ export default Vue.extend({
   methods: {
     bidPrice() {
       this.$store.dispatch("bidAuction", {
-        id: this.$props.auction.id,
-        price: this.$store.getters.currentAuctionPrice,
+        id: this.$props.auction.productId,
+        price: this.$store.getters.tempPrice,
       });
     },
   },
