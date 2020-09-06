@@ -29,10 +29,15 @@ export default Vue.extend({
   },
   methods: {
     bidPrice() {
-      this.$store.dispatch("bidAuction", {
-        id: this.$props.auction.productId,
-        price: this.$store.getters.tempPrice,
-      });
+      const path = `/details/${this.$props.auction.id}`;
+      if (this.$router.currentRoute.path == path) {
+        this.$store.dispatch("bidAuction", {
+          id: this.$props.auction.productId,
+          price: this.$store.getters.tempPrice,
+        });
+      } else {
+        this.$router.push({ path });
+      }
     },
   },
 });

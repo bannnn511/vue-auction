@@ -120,11 +120,15 @@ export default Vue.extend({
         email: this.loginEmail,
         password: this.loginPassword,
       });
+      this.toMainPage();
     },
     sigup() {
       this.loginEmail = "";
       this.loginPassword = "";
-      console.log(this.fullname, this.signUpEmail, this.signUpPassword);
+      this.toMainPage();
+    },
+    toMainPage() {
+      this.$router.push({ path: "/" });
     },
   },
 });

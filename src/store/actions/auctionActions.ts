@@ -58,8 +58,7 @@ export const auctionActions = {
       );
 
       if (res.status < 400) {
-        console.log("hi");
-        // commit(BID_PRICE, res.data);
+        commit(BID_PRICE, res.data);
       } else {
         console.log("hello");
         throw new Error("bid price failed");

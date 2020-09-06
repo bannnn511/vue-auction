@@ -8,6 +8,7 @@ import {
 } from "./getters";
 import { auctionMutations, authMutations } from "./mutations/index";
 import { auctionActions, authActions } from "./actions/index";
+import createPersistedState from "vuex-persistedstate";
 
 Vue.use(Vuex);
 
@@ -41,4 +42,5 @@ export default new Vuex.Store({
   ),
   mutations: Object.assign({}, authMutations, auctionMutations),
   actions: Object.assign({}, authActions, auctionActions),
+  plugins: [createPersistedState()],
 });
