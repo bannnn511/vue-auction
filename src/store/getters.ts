@@ -7,7 +7,7 @@ export const auctionGetters = {
   // Product by ID
   auctionById: (state: any, getters: any) => (id: any) => {
     if (getters.allAuctions.length > 0) {
-      return getters.allAuctions[0].filter((p: any) => p.id === id)[0];
+      return getters.allAuctions.filter((p: any) => p.id === id)[0];
     } else {
       return state.auction;
     }

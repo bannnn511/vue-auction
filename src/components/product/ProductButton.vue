@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button v-if="isAdding" class="button" @click="bidPrice">
+    <button class="button" @click="bidPrice">
       <i class="fa fa-cart-plus"></i> Bid price
     </button>
     <!-- <button
@@ -20,24 +20,28 @@ export default Vue.extend({
   data() {
     return {
       cart: this.$store.state.cart,
+      price: null,
     };
   },
-  computed: {
-    isAdding() {
-      return this.$store.state.cart.indexOf(this.auction) < 0;
-    },
-  },
+  computed: {},
   methods: {
     bidPrice() {
       const path = `/details/${this.$props.auction.id}`;
       if (this.$router.currentRoute.path == path) {
-        this.$store.dispatch("bidAuction", {
+        const data = {
           id: this.$props.auction.productId,
           price: this.$store.getters.tempPrice,
-        });
+        };
+        this.$store.dispatch("bidAuction", data);
+        this.$socket.emit("auction", { data });
       } else {
         this.$router.push({ path });
       }
+    },
+  },
+  sockets: {
+    bid: function(res) {
+      this.$data.price = res.price;
     },
   },
 });

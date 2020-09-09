@@ -1,7 +1,7 @@
 <template>
   <div class="auction">
     <div class="container">
-      <template v-for="(auction, index) in auctions[0]">
+      <template v-for="(auction, index) in auctions">
         <product-item :auction="auction" v-bind:key="index"></product-item>
       </template>
     </div>
@@ -14,9 +14,7 @@ import ProductItem from "./ProductItem.vue";
 export default Vue.extend({
   name: "product-list",
   created() {
-    if (this.auctions.length === 0) {
-      this.$store.dispatch("allAuctions");
-    }
+    this.$store.dispatch("allAuctions");
   },
   computed: {
     auctions() {

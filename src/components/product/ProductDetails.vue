@@ -59,6 +59,14 @@ export default Vue.extend({
   components: {
     "product-button": ProductButton,
   },
+  sockets: {
+    connect: () => {
+      console.log("socket connected");
+    },
+    broadcast: function(data) {
+      this.$store.commit(UPDATE_PRODUCT_TEMP_PRICE, data.currentPrice);
+    },
+  },
 });
 </script>
 

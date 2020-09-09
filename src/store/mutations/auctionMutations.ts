@@ -8,6 +8,7 @@ import {
   BID_PRICE,
   UPDATE_PRODUCT_TEMP_PRICE,
 } from "@/store/mutation-types";
+import { clearArray } from "@/shared/helpers/array";
 
 export const auctionMutations = {
   [ALL_AUCTIONS](state: any) {
@@ -16,10 +17,7 @@ export const auctionMutations = {
 
   [ALL_AUCTIONS_SUCCESS](state: any, payload: any) {
     state.showLoader = false;
-    state.auctions = payload;
-    // payload.forEach((element: any) => {
-    //   state.auctions.push(element);
-    // });
+    state.auctions = state.auctions.concat(payload);
   },
 
   [ADD_AUCTION](state: any) {
@@ -28,7 +26,7 @@ export const auctionMutations = {
 
   [ADD_AUCTION_SUCCESS](state: any, payload: any) {
     state.showLoader = false;
-    state.auctions.push(payload);
+    state.auctions = payload;
   },
 
   [AUCTION_BY_ID](state: any) {

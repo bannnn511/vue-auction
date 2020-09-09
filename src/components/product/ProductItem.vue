@@ -12,8 +12,19 @@
         </div>
         <div class="product__description">
           <div class="product__info">
-            <small>{{ auction.productName }}</small>
-            <h5>{{ auction.description }}</h5>
+            <h5>{{ auction.productName }}</h5>
+            <small
+              >Remaining time:
+              {{
+                remaingTime
+                  ? `${remaingTime.days}:${("0" + remaingTime.hours).slice(
+                      -2
+                    )}:${("0" + remaingTime.minutes).slice(-2)}:${(
+                      "0" + remaingTime.seconds
+                    ).slice(-2)}`
+                  : ""
+              }}</small
+            >
           </div>
           <div class="product__price-cart">${{ auction.currentPrice }}</div>
         </div>
@@ -28,11 +39,44 @@
 <script lang="ts">
 import Vue from "vue";
 import ProductButton from "./ProductButton.vue";
+import { countdown } from "@/shared/helpers/array";
 export default Vue.extend({
   name: "product-item",
   props: ["auction"],
   components: {
     "product-button": ProductButton,
+  },
+  data() {
+    return {
+      remaingTime: {},
+    };
+  },
+  methods: {
+    countdown() {
+      const endAt = new Date(this.$props.auction.endAt);
+      const now = new Date();
+      const t = endAt.getTime() - now.getTime();
+      const seconds = Math.floor((t / 1000) % 60);
+      const minutes = Math.floor((t / 1000 / 60) % 60);
+      const hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+      const days = Math.floor(t / (1000 * 60 * 60 * 24));
+      if (t > 0) {
+        this.remaingTime = {
+          total: t,
+          days: days,
+          hours: hours,
+          minutes: minutes,
+          seconds: seconds,
+        };
+        setTimeout(this.countdown, 1000);
+      } else {
+        this.remaingTime = {};
+      }
+    },
+  },
+
+  mounted() {
+    setTimeout(this.countdown, 1);
   },
 });
 </script>

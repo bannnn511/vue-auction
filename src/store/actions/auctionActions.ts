@@ -8,8 +8,9 @@ import {
 } from "@/store/mutation-types";
 import store from "../index";
 import axios from "axios";
+import { URL } from "@/shared/constants";
 
-const API_BASE = "http://localhost:4000/api";
+const API_BASE = URL.BASEAPI;
 
 export const auctionActions = {
   async allAuctions({ commit }: any) {
@@ -60,7 +61,6 @@ export const auctionActions = {
       if (res.status < 400) {
         commit(BID_PRICE, res.data);
       } else {
-        console.log("hello");
         throw new Error("bid price failed");
       }
     } catch (error) {
