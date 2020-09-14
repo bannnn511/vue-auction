@@ -33,15 +33,9 @@ export default Vue.extend({
           price: this.$store.getters.tempPrice,
         };
         this.$store.dispatch("bidAuction", data);
-        this.$socket.emit("auction", { data });
       } else {
         this.$router.push({ path });
       }
-    },
-  },
-  sockets: {
-    bid: function(res) {
-      this.$data.price = res.price;
     },
   },
 });

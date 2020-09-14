@@ -1,3 +1,4 @@
+import { UPDATE_PRODUCT_PRICE_WITH_ID } from "./../mutation-types";
 import {
   ADD_AUCTION,
   ADD_AUCTION_SUCCESS,
@@ -8,7 +9,6 @@ import {
   BID_PRICE,
   UPDATE_PRODUCT_TEMP_PRICE,
 } from "@/store/mutation-types";
-import { clearArray } from "@/shared/helpers/array";
 
 export const auctionMutations = {
   [ALL_AUCTIONS](state: any) {
@@ -46,5 +46,9 @@ export const auctionMutations = {
 
   [UPDATE_PRODUCT_TEMP_PRICE](state: any, payload: number) {
     state.tempPrice = payload;
+  },
+
+  [UPDATE_PRODUCT_PRICE_WITH_ID](state: any, payload: any) {
+    state.auctions[payload.index].currentPrice = payload.price;
   },
 };

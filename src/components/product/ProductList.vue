@@ -11,6 +11,7 @@
 <script lang="ts">
 import Vue from "vue";
 import ProductItem from "./ProductItem.vue";
+import { UPDATE_PRODUCT_PRICE_WITH_ID } from "@/store/mutation-types";
 export default Vue.extend({
   name: "product-list",
   created() {
@@ -23,6 +24,15 @@ export default Vue.extend({
   },
   components: {
     "product-item": ProductItem,
+  },
+  sockets: {
+    broadcast: function(data) {
+      const index = this.$store.getters.auctionIndex(data.id);
+      this.$store.commit(UPDATE_PRODUCT_PRICE_WITH_ID, {
+        index,
+        price: data.currentPrice,
+      });
+    },
   },
 });
 </script>

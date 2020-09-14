@@ -39,7 +39,6 @@
 <script lang="ts">
 import Vue from "vue";
 import ProductButton from "./ProductButton.vue";
-import { countdown } from "@/shared/helpers/array";
 export default Vue.extend({
   name: "product-item",
   props: ["auction"],
@@ -128,6 +127,7 @@ export default Vue.extend({
 }
 .product__description small {
   color: #808080;
+  font-size: 13px;
 }
 .product__description h4 {
   margin: 3px 0 5px 0;

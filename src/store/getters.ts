@@ -5,12 +5,16 @@ export const auctionGetters = {
   },
 
   // Product by ID
-  auctionById: (state: any, getters: any) => (id: any) => {
+  auctionById: (state: any, getters: any) => (id: number) => {
     if (getters.allAuctions.length > 0) {
       return getters.allAuctions.filter((p: any) => p.id === id)[0];
     } else {
       return state.auction;
     }
+  },
+
+  auctionIndex: (state: any, getters: any) => (id: number) => {
+    return state.auctions.map((auction: any) => auction.productId).indexOf(id);
   },
 
   // current auction price
