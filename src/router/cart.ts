@@ -1,7 +1,7 @@
-import Cart from "../Pages/Cart/Cart.vue";
+import categories from "../Pages/Categories/Categories.vue";
 
 export default {
-  path: "/cart",
-  name: "Cart",
-  component: Cart,
+  path: "/categories",
+  name: "Categories",
+  component: categories,
 };

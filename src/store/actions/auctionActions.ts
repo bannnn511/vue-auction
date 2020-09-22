@@ -10,37 +10,35 @@ import store from "../index";
 import axios from "axios";
 import { URL } from "@/shared/constants";
 
-const API_BASE = URL.BASEAPI;
-
 export const auctionActions = {
   async allAuctions({ commit }: any) {
     commit(ALL_AUCTIONS);
     try {
-      const route = `${API_BASE}/auctions`;
+      const route = `${URL.BASEAPI}/auctions`;
       const res = await axios.get(route);
       commit(ADD_AUCTION_SUCCESS, res.data);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   },
 
   async addAuction({ commit }: any, payload: any) {
     commit(ALL_AUCTIONS);
     try {
-      const res = await axios.get(`${API_BASE}/auctions`);
+      const res = await axios.get(`${URL.BASEAPI}/auctions`);
       commit(ALL_AUCTIONS_SUCCESS, res.data);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   },
 
   async auctionById({ commit }: any, payload: any) {
     commit(AUCTION_BY_ID);
     try {
-      const res = await axios.get(`${API_BASE}/auctions/${payload}`);
+      const res = await axios.get(`${URL.BASEAPI}/auctions/${payload}`);
       commit(AUCTION_BY_ID_SUCCESS, res.data);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   },
 
@@ -51,7 +49,7 @@ export const auctionActions = {
       };
 
       const res = await axios.put(
-        `${API_BASE}/products/${payload.id}/price`,
+        `${URL.BASEAPI}/products/${payload.id}/price`,
         {
           price: payload.price,
         },
@@ -64,7 +62,7 @@ export const auctionActions = {
         throw new Error("bid price failed");
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   },
 };

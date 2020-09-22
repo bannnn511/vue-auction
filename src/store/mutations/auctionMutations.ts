@@ -1,4 +1,3 @@
-import { UPDATE_PRODUCT_PRICE_WITH_ID } from "./../mutation-types";
 import {
   ADD_AUCTION,
   ADD_AUCTION_SUCCESS,
@@ -8,6 +7,7 @@ import {
   AUCTION_BY_ID_SUCCESS,
   BID_PRICE,
   UPDATE_PRODUCT_TEMP_PRICE,
+  UPDATE_PRODUCT_PRICE_WITH_ID,
 } from "@/store/mutation-types";
 
 export const auctionMutations = {

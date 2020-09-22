@@ -15,7 +15,7 @@
             <router-link to="/seller">Seller</router-link>
           </li>
           <li>
-            <router-link to="/cart">Cart</router-link>
+            <router-link to="/categories">Categories</router-link>
           </li>
         </ul>
       </div>

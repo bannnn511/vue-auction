@@ -1,3 +1,4 @@
+import { favouriteMutations } from "./mutations/favouriteMutations";
 import Vue from "vue";
 import Vuex from "vuex";
 import {
@@ -6,8 +7,17 @@ import {
   categoriesGetters,
   authGetters,
 } from "./getters";
-import { auctionMutations, authMutations } from "./mutations/index";
-import { auctionActions, authActions } from "./actions/index";
+import {
+  auctionMutations,
+  authMutations,
+  categoryMutations,
+} from "./mutations/index";
+import {
+  auctionActions,
+  authActions,
+  categoryActions,
+  favouriteActions,
+} from "./actions/index";
 import createPersistedState from "vuex-persistedstate";
 
 Vue.use(Vuex);
@@ -31,7 +41,8 @@ export default new Vuex.Store({
         name: "Apple",
       },
     ],
-    categories: ["books", "clothes", "accessory"],
+    categories: [],
+    favCategories: [],
   },
   getters: Object.assign(
     {},
@@ -40,7 +51,19 @@ export default new Vuex.Store({
     manufacturerGetters,
     categoriesGetters
   ),
-  mutations: Object.assign({}, authMutations, auctionMutations),
-  actions: Object.assign({}, authActions, auctionActions),
+  mutations: Object.assign(
+    {},
+    authMutations,
+    auctionMutations,
+    categoryMutations,
+    favouriteMutations
+  ),
+  actions: Object.assign(
+    {},
+    authActions,
+    auctionActions,
+    categoryActions,
+    favouriteActions
+  ),
   plugins: [createPersistedState()],
 });

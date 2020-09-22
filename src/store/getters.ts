@@ -35,7 +35,11 @@ export const manufacturerGetters = {
 
 export const categoriesGetters = {
   // All categories
-  allCategories: (state: any) => state.categories,
+  allCategories: (state: any) =>
+    state.categories.map((category: any) => category.categoryName),
+
+  // favourite categories
+  favCategories: (state: any) => state.favCategories,
 };
 
 export const authGetters = {
