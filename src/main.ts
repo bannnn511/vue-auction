@@ -2,6 +2,7 @@ import Vue from "vue";
 import socketio from "socket.io-client";
 import VueSocketIO from "vue-socket.io";
 import Toasted from "vue-toasted";
+import Notifications from "vue-notification";
 import App from "./Pages/App.vue";
 import router from "./router";
 import store from "./store/index";
@@ -25,6 +26,7 @@ for (const [rule, validation] of Object.entries(rules)) {
 
 Vue.config.productionTip = false;
 Vue.use(Toasted);
+Vue.use(Notifications);
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 Vue.component("ValidationProvider", ValidationProvider);

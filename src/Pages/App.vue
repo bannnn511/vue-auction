@@ -21,6 +21,7 @@
       </div>
     </nav>
     <nav-home></nav-home>
+    <notifications />
     <router-view></router-view>
   </div>
 </template>
@@ -32,6 +33,17 @@ export default Vue.extend({
   name: "App",
   components: {
     "nav-home": Nav,
+  },
+  sockets: {
+    askForUserId: function() {
+      const id = this.$store.getters.getUserId;
+      this.$socket.emit("userIdReceived", id);
+    },
+    notification: function(payload) {
+      this.$notify({
+        title: payload,
+      });
+    },
   },
 });
 </script>

@@ -48,4 +48,11 @@ export const authGetters = {
 
   // bearer token
   getBearerToken: (state: any) => `Bearer ${state.token}`,
+
+  // get user id from token
+  getUserId: (state: any) => {
+    const parts = state.token.split("."); // header, payload, signature
+    const { id } = JSON.parse(atob(parts[1]));
+    return id;
+  },
 };

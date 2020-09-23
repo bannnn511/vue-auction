@@ -21,13 +21,10 @@
 import Vue from "vue";
 export default Vue.extend({
   name: "category-item",
-  created() {
-    const favCategories = this.$store.getters.favCategories;
-    favCategories.forEach((category: any) => {
-      if (category.categoryName === this.$props.category) {
-        this.like = true;
-      }
-    });
+  computed: {
+    favCategories(): any {
+      return this.$store.getters.favCategories;
+    },
   },
   data() {
     return {
@@ -39,6 +36,15 @@ export default Vue.extend({
       this.like = !this.like;
       const category = this.$props.category;
       this.$store.dispatch("addToFavouriteCategory", category);
+    },
+  },
+  watch: {
+    favCategories(newFav, oldFav) {
+      newFav.forEach((category: any) => {
+        if (category.categoryName === this.$props.category) {
+          this.like = true;
+        }
+      });
     },
   },
   props: ["category"],
