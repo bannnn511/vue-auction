@@ -17,6 +17,9 @@
           <li>
             <router-link to="/categories">Categories</router-link>
           </li>
+          <li>
+            <router-link to="/notifications">Notifications</router-link>
+          </li>
         </ul>
       </div>
     </nav>

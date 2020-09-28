@@ -1,3 +1,5 @@
+import { notificationActions } from "./actions/notificationActions";
+import { notificationMutations } from "./mutations/notificationMutations";
 import { favouriteMutations } from "./mutations/favouriteMutations";
 import Vue from "vue";
 import Vuex from "vuex";
@@ -6,6 +8,7 @@ import {
   manufacturerGetters,
   categoriesGetters,
   authGetters,
+  notificationGetters,
 } from "./getters";
 import {
   auctionMutations,
@@ -43,27 +46,31 @@ export default new Vuex.Store({
     ],
     categories: [],
     favCategories: [],
+    notifications: [],
   },
   getters: Object.assign(
     {},
     authGetters,
     auctionGetters,
     manufacturerGetters,
-    categoriesGetters
+    categoriesGetters,
+    notificationGetters
   ),
   mutations: Object.assign(
     {},
     authMutations,
     auctionMutations,
     categoryMutations,
-    favouriteMutations
+    favouriteMutations,
+    notificationMutations
   ),
   actions: Object.assign(
     {},
     authActions,
     auctionActions,
     categoryActions,
-    favouriteActions
+    favouriteActions,
+    notificationActions
   ),
   plugins: [createPersistedState()],
 });

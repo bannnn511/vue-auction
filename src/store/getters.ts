@@ -56,3 +56,7 @@ export const authGetters = {
     return id;
   },
 };
+
+export const notificationGetters = {
+  getAllNotfications: (state: any) => state.notifications,
+};

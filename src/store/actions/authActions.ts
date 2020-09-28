@@ -1,7 +1,8 @@
+import { URL } from "./../../shared/constants";
 import axios from "axios";
 import { LOGIN_SUCCESS, SIGNUP_SUCCESS } from "@/store/mutation-types";
 
-const API_BASE = "http://localhost:4000/api";
+const API_BASE = URL.BASEAPI;
 
 export const authActions = {
   async login({ commit }: any, payload: any) {
