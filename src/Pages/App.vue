@@ -46,6 +46,7 @@ export default Vue.extend({
       this.$notify({
         title: payload,
       });
+      this.$store.dispatch("getNotifications");
     },
   },
 });

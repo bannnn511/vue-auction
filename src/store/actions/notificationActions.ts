@@ -19,9 +19,28 @@ export const notificationActions = {
 
   async markAllAsRead({ commit }: any) {
     try {
-      const res = await axios.put(`${API_BASE}/notifications`, {
-        headers: { Authorization: store.getters.getBearerToken },
-      });
+      const res = await axios.put(
+        `${API_BASE}/notifications/all`,
+        {},
+        {
+          headers: { Authorization: store.getters.getBearerToken },
+        }
+      );
+      commit(MARK_ALL_AS_READ, res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  },
+
+  async markAsRead({ commit }: any, payload: any) {
+    try {
+      const res = await axios.put(
+        `${API_BASE}/notifications`,
+        { description: payload.description, createdAt: payload.createdAt },
+        {
+          headers: { Authorization: store.getters.getBearerToken },
+        }
+      );
       commit(MARK_ALL_AS_READ, res.data);
     } catch (error) {
       console.error(error);
