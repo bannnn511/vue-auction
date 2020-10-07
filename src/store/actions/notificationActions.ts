@@ -46,4 +46,15 @@ export const notificationActions = {
       console.error(error);
     }
   },
+
+  async sendOneSignalPlayerId({ commit }: any, playerId: string) {
+    try {
+      const options = {
+        headers: { Authorization: store.getters.getBearerToken },
+      };
+      await axios.post(`${API_BASE}/onesignal`, { playerId }, options);
+    } catch (error) {
+      console.error(error);
+    }
+  },
 };

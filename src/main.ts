@@ -48,3 +48,25 @@ new Vue({
   store,
   render: h => h(App),
 }).$mount("#app");
+
+window.OneSignal = window.OneSignal || [];
+window.OneSignal.push(function() {
+  console.log("tets");
+  OneSignal.init({
+    appId: "c13d9e87-476b-4ef1-8721-f2c1486e0dbd",
+  });
+
+  OneSignal.on("notificationDisplay", function(event) {
+    console.warn("OneSignal notification displayed:", event);
+  });
+
+  OneSignal.getUserId(function(userId) {
+    console.log("OneSignal User ID:", userId);
+    store.dispatch("sendOneSignalPlayerId", userId);
+  });
+
+  // Occurs when the user's subscription changes to a new value.
+  OneSignal.on("subscriptionChange", function(isSubscribed) {
+    console.log("The user's subscription state is now:", isSubscribed);
+  });
+});
