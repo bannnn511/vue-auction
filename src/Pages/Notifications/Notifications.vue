@@ -8,10 +8,14 @@
       v-for="(notification, index) in notifications"
       :key="index"
     >
-      <div class="notification-item" :class="{ unread: !notification.isRead }">
+      <button
+        class="notification-item"
+        :class="{ unread: !notification.isRead }"
+        @click="markAsRead(notification.description, notification.created_at)"
+      >
         <label>{{ notification.description }}</label>
-        <h5>{{ notification.createdAt }}</h5>
-      </div>
+        <h5>{{ notification.created_at }}</h5>
+      </button>
     </div>
   </div>
 </template>
@@ -32,6 +36,10 @@ export default Vue.extend({
     markAllAsRead() {
       this.$store.dispatch("markAllAsRead");
     },
+    markAsRead(description: string, createdAt: string) {
+      console.log(description, createdAt);
+      this.$store.dispatch("markAsRead", { description, createdAt });
+    },
   },
 });
 </script>
@@ -48,6 +56,7 @@ export default Vue.extend({
   width: 50%;
   margin: 0 auto;
   margin-top: 20px;
+  background: white;
 }
 .unread {
   font-weight: bold;

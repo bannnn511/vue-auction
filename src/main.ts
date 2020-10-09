@@ -51,7 +51,6 @@ new Vue({
 
 window.OneSignal = window.OneSignal || [];
 window.OneSignal.push(function() {
-  console.log("tets");
   OneSignal.init({
     appId: "c13d9e87-476b-4ef1-8721-f2c1486e0dbd",
   });
@@ -62,7 +61,9 @@ window.OneSignal.push(function() {
 
   OneSignal.getUserId(function(userId) {
     console.log("OneSignal User ID:", userId);
-    store.dispatch("sendOneSignalPlayerId", userId);
+    if (store.getters.getToken) {
+      store.dispatch("sendOneSignalPlayerId", userId);
+    }
   });
 
   // Occurs when the user's subscription changes to a new value.
